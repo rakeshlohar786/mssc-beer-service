@@ -10,10 +10,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Version;
 
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -40,12 +43,20 @@ public class Beer {
 	@Version
 	private Long version;
 	
-	@CreationTimestamp
-	@Column(updatable = false)
-	private Timestamp createdDate;
+	/** Rakesh note
+	 * creation and updation timestamp is not wokring so used to CreatedDate and LastModified annotation
+	 */
 	
-	@UpdateTimestamp
-	private Timestamp updatedDate;
+//	@CreationTimestamp
+//	@Column(updatable = false)
+	@CreatedDate
+	@ColumnDefault("CURRENT_TIMESTAMP")
+	Timestamp createdDate;
+	//
+	//@UpdateTimestamp
+	@LastModifiedDate
+	@ColumnDefault("CURRENT_TIMESTAMP")
+	Timestamp updatedDate;
 	
 	
 	private String beerName;
