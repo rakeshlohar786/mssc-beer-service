@@ -44,11 +44,12 @@ public class BeerDto {
   @NotNull
   private BeerStyleEnum beerStyle;
   
+  @Positive
   @NotNull
   private Long upc;
   
   
-  @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssZ", shape=JsonFormat.Shape.STRING)
+
   @Positive
   @NotNull
   private BigDecimal price;

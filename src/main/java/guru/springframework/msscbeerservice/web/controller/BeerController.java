@@ -29,7 +29,7 @@ public class BeerController {
 	@PostMapping
 	public ResponseEntity saveNewBear(@Validated @RequestBody BeerDto beerDto) {
 		
-		return new ResponseEntity(HttpStatus.OK);
+		return new ResponseEntity(HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/{beerId}")
