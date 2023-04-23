@@ -65,6 +65,10 @@ public class BeerLoader implements CommandLineRunner
 		beerRepository.save(b2);
 		beerRepository.save(b3);
 		
+		System.out.println(b1.getId());
+		System.out.println(b2.getId());
+		System.out.println(b3.getId());
+		
 		System.out.println("Load Beers "+beerRepository.count() 
 		+" \n Created Date: "+b1.getCreatedDate()
 		+"\n Updated Date "+b1.getUpdatedDate()
