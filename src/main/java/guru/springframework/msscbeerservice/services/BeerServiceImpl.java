@@ -10,6 +10,7 @@ import guru.springframework.msscbeerservice.web.mapper.BeerMapper;
 import guru.springframework.msscbeerservice.web.model.BeerDto;
 import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 @Service
 public class BeerServiceImpl implements BeerService{
 
@@ -27,11 +28,6 @@ public class BeerServiceImpl implements BeerService{
 				beerRepository.findById(beerId).orElseThrow(NotFoundException::new));
 	}
 
-	public BeerServiceImpl(BeerRepository beerRepository, BeerMapper beerMapper) {
-		super();
-		this.beerRepository = beerRepository;
-		this.beerMapper = beerMapper;
-	}
 
 	@Override
 	public BeerDto saveNewBeer(BeerDto beerDto) {
