@@ -4,8 +4,11 @@ import java.util.UUID;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
+
+
 import org.mockito.internal.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -28,11 +31,11 @@ public class BeerServiceImpl implements BeerService{
 	
 	private final BeerMapper beerMapper;
 	
-	
+	@Cacheable(cacheNames = "beerListCache", condition = "#showInventoryOnHand == false ")
 	@Override
 	public BeerPagedList listBeers(String beerName, BeerStyleEnum beerStyle, PageRequest pageRequest,
 			Boolean showInventoryOnHand) {
-
+		System.out.println("It was called");
 		BeerPagedList beerPagedList;
 		Page<Beer> beerPage = null;
 		
@@ -78,10 +81,10 @@ public class BeerServiceImpl implements BeerService{
 	}
 	
 	
-
+	 @Cacheable(cacheNames = "beerCache", key = "#beerId", condition = "#showInventoryOnHand == false ")
 	@Override
 	public BeerDto getById(UUID beerId, Boolean showInventoryOnHand) {
-	
+		 System.out.println("It was called");
 	if(showInventoryOnHand) {
 		return beerMapper.beerToBeerDtoWithInventory(
 				beerRepository.findById(beerId).orElseThrow(NotFoundException::new));

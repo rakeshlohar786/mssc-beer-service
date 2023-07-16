@@ -24,6 +24,8 @@ import lombok.NoArgsConstructor;
 @Builder
 public class BeerDto {
 
+  private static final long serialVersionId = 324534543543543L;
+	
   @Null
   private UUID id;
   
