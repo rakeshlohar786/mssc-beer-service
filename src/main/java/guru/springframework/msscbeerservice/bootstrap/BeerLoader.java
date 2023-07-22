@@ -39,7 +39,7 @@ public class BeerLoader implements CommandLineRunner {
 	}
 
 	public void loadBeerObjects() {
-
+		System.out.println("called");
 		Beer b1 = Beer.builder().beerName("Mango Bobs").beerStyle(BeerStyleEnum.IPA.name()).minOnHand(12)
 				.quantityToBrew(200).price(new BigDecimal("12.95")).upc(BEER_1_UPC).build();
 

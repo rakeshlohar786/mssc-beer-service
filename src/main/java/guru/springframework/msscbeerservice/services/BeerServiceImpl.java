@@ -1,5 +1,6 @@
 package guru.springframework.msscbeerservice.services;
 
+import java.io.Console;
 import java.util.UUID;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
@@ -99,7 +100,7 @@ public class BeerServiceImpl implements BeerService{
 
 	@Override
 	public BeerDto saveNewBeer(BeerDto beerDto) {
-		
+		System.out.println("BeerServiceImple -  saveBeer() called  called");
 		return beerMapper.beerToBeerDto(beerRepository.save(beerMapper.beerDtoToBeer(beerDto)));
 	}
 
@@ -122,7 +123,8 @@ public class BeerServiceImpl implements BeerService{
 
 	@Override
 	public BeerDto getByUpc(String upc) {
-		
+		System.out.println("BeerServiceImple -  getByUpc() called");
+
 		return beerMapper.beerToBeerDto(beerRepository.findByUpc(upc));
 	}
 
