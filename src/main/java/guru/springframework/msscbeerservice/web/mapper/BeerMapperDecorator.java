@@ -1,6 +1,5 @@
 package guru.springframework.msscbeerservice.web.mapper;
 
-import static org.mockito.Mockito.RETURNS_DEEP_STUBS;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
